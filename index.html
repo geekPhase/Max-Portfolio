@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #f0f0f0;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+    }
+
+    header h1 { font-size: 2.5rem; color: #00d4ff; }
+    header p  { font-size: 1.1rem; margin-top: 10px; color: #aaa; }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 { color: #00d4ff; margin-bottom: 15px; }
+
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill {
+      background: #1e1e2e;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .project-card {
+      background: #1e1e2e;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 { color: #fff; }
+    .project-card p  { color: #aaa; margin-top: 5px; }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #555;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hi, I'm [Your Name] 👋</h1>
+    <p>[Your tagline — e.g. "Aspiring developer learning one project at a time"]</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>[Write 2-3 sentences about yourself — who you are, what you're learning, what you're excited about]</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">JavaScript</span>
+      <!-- Add more as you learn! -->
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>My Portfolio Website</h3>
+      <p>My first ever webpage — built with HTML & CSS from scratch.</p>
+    </div>
+    <!-- Add more project cards as you build things! -->
+  </section>
+
+  <footer>
+    <p>Built by [Your Name] · GitHub: <a href="https://github.com/yourusername" style="color:#00d4ff">@yourusername</a></p>
+  </footer>
+
+</body>
+</html>
