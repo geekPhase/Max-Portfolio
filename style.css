@@ -1,8 +1,12 @@
- * html {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
   scroll-behavior: smooth;
 }
- { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #0f0f0f;
@@ -214,4 +218,85 @@ nav {
   height: 2.5rem;
   object-fit: contain;
   filter: brightness(0) invert(1);
+}
+/* ========== ACTIVE NAV LINK ========== */
+.nav-links a.active {
+  color: #00d4ff;
+  border-bottom: 2px solid #00d4ff;
+}
+
+/* ========== BACK TO TOP ========== */
+#back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: #00d4ff;
+  color: #0f0f0f;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+  transition: transform 0.2s ease;
+  z-index: 999;
+}
+
+#back-to-top:hover {
+  transform: translateY(-3px);
+}
+
+/* ========== RESUME BUTTON ========== */
+.resume-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: transparent;
+  color: #00d4ff;
+  border: 2px solid #00d4ff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.resume-btn:hover {
+  background: #00d4ff;
+  color: #0f0f0f;
+  transform: translateY(-3px);
+}
+
+/* ========== SKILL PROGRESS BARS ========== */
+.skill-bars {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.skill-bar-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.skill-bar-track {
+  background: #1e1e2e;
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00d4ff, #0077ff);
+  border-radius: 999px;
+  transition: width 1.2s ease;
 }
