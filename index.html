@@ -4,45 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
-      <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<script>
-  // ========== TYPING ANIMATION ==========
-  const name = "Maximino D. Herana Jr"; // 
-  let i = 0;
-  function typeName() {
-    if (i < name.length) {
-      document.getElementById("typed-name").textContent += name.charAt(i);
-      i++;
-      setTimeout(typeName, 100);
-    }
-  }
-  typeName();
-
-  // ========== SCROLL FADE IN ==========
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll("section").forEach(section => {
-    observer.observe(section);
-  });
-</script>
-
 <body>
 
   <header>
-    <h1>Hi, I'm <span id="typed-name"></span> 👋</h1>
+    <h1>Hi, I'm <span id="typed-name"></span></h1>
     <p>Aspiring developer learning one project at a time</p>
   </header>
 
   <section>
     <h2>About Me</h2>
-    <p>I’m a beginner programmer who believes in continuous learning. Every day, I dedicate time to coding, improving my skills, and building projects that help me grow as a future developer.</p>
+    <p>I'm a beginner programmer who believes in continuous learning. Every day, I dedicate time to coding, improving my skills, and building projects that help me grow as a future developer.</p>
   </section>
 
   <section>
@@ -51,7 +25,6 @@
       <span class="skill">HTML</span>
       <span class="skill">CSS</span>
       <span class="skill">JavaScript</span>
-      <!-- Add more as you learn! -->
     </div>
   </section>
 
@@ -61,12 +34,57 @@
       <h3>My Portfolio Website</h3>
       <p>My first ever webpage — built with HTML & CSS from scratch.</p>
     </div>
-    <!-- Add more project cards as you build things! -->
+  </section>
+
+  <section>
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out — I'd love to connect!</p>
+    <div class="contact-links">
+      <a href="mailto:mherana.jr@gmail.com" class="contact-btn">
+        Email Me
+      </a>
+      <a href="https://facebook.com/EiiiyArrr" target="_blank" class="contact-btn">
+        Facebook
+      </a>
+      <a href="https://github.com/geekPhase" target="_blank" class="contact-btn">
+         GitHub
+      </a>
+ </div>
   </section>
 
   <footer>
     <p>Built by Max · GitHub: <a href="https://github.com/geekPhase" style="color:#00d4ff">@geekPhase</a></p>
   </footer>
+
+
+  <script>
+
+    const name = "Maximino D. Herana Jr";
+    let i = 0;
+    function typeName() {
+      if (i < name.length) {
+        document.getElementById("typed-name").textContent += name.charAt(i);
+        i++;
+        setTimeout(typeName, 100);
+      }
+    }
+    typeName();
+
+    // ========== SCROLL FADE IN ==========
+    window.addEventListener("load", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll("section").forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
 
 </body>
 </html>
