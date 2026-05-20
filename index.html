@@ -4,68 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f0f0f;
-      color: #f0f0f0;
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-    }
-
-    header h1 { font-size: 2.5rem; color: #00d4ff; }
-    header p  { font-size: 1.1rem; margin-top: 10px; color: #aaa; }
-
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    h2 { color: #00d4ff; margin-bottom: 15px; }
-
-    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
-    .skill {
-      background: #1e1e2e;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-    }
-
-    .project-card {
-      background: #1e1e2e;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .project-card h3 { color: #fff; }
-    .project-card p  { color: #aaa; margin-top: 5px; }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #555;
-      font-size: 0.85rem;
-    }
-  </style>
+      <link rel="stylesheet" href="style.css">
 </head>
+<script>
+  // ========== TYPING ANIMATION ==========
+  const name = "Maximino D. Herana Jr"; // 
+  let i = 0;
+  function typeName() {
+    if (i < name.length) {
+      document.getElementById("typed-name").textContent += name.charAt(i);
+      i++;
+      setTimeout(typeName, 100);
+    }
+  }
+  typeName();
+
+  // ========== SCROLL FADE IN ==========
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll("section").forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 <body>
 
   <header>
-    <h1>Hi, I'm [Your Name] 👋</h1>
-    <p>[Your tagline — e.g. "Aspiring developer learning one project at a time"]</p>
+    <h1>Hi, I'm <span id="typed-name"></span> 👋</h1>
+    <p>Aspiring developer learning one project at a time</p>
   </header>
 
   <section>
     <h2>About Me</h2>
-    <p>[Write 2-3 sentences about yourself — who you are, what you're learning, what you're excited about]</p>
+    <p>I’m a beginner programmer who believes in continuous learning. Every day, I dedicate time to coding, improving my skills, and building projects that help me grow as a future developer.</p>
   </section>
 
   <section>
@@ -88,7 +65,7 @@
   </section>
 
   <footer>
-    <p>Built by [Your Name] · GitHub: <a href="https://github.com/yourusername" style="color:#00d4ff">@yourusername</a></p>
+    <p>Built by Max · GitHub: <a href="https://github.com/geekPhase" style="color:#00d4ff">@geekPhase</a></p>
   </footer>
 
 </body>
