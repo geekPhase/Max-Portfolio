@@ -9,8 +9,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
+    <div id="loader">
+  <div class="loader-content">
+    <div class="loader-circle"></div>
+    <p>Loading...</p>
+  </div>
+</div>
 
   <nav>
+    <div id="progress-bar"></div>
     <div class="nav-logo">geekPhase</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -105,13 +112,24 @@
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="web">Web</button>
+    <button class="filter-btn" data-filter="tools">Tools</button>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card" data-category="web">
       <h3>My Portfolio Website</h3>
       <p>My first ever webpage — built with HTML & CSS from scratch.</p>
+      <span class="project-tag">Web</span>
     </div>
-  </section>
+    <!-- Add more project cards here as you build! -->
+  </div>
+</section>
 
   <section id="contact">
     <h2>Contact Me</h2>
@@ -150,6 +168,22 @@
 
     window.addEventListener("load", () => {
 
+        // ========== LOADING SCREEN ==========
+const loader = document.getElementById("loader");
+loader.style.opacity = "0";
+setTimeout(() => {
+  loader.style.display = "none";
+}, 500);
+
+        // ========== SCROLL PROGRESS BAR ==========
+const progressBar = document.getElementById("progress-bar");
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  progressBar.style.width = progress + "%";
+});
+
       // ========== SCROLL FADE IN ==========
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -173,6 +207,25 @@
         });
       }, { threshold: 0.3 });
       bars.forEach(bar => barObserver.observe(bar));
+      // ========== PROJECT FILTER ==========
+const filterBtns = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.getAttribute("data-filter");
+    projectCards.forEach(card => {
+      if (filter === "all" || card.getAttribute("data-category") === filter) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+});
 
       // ========== ACTIVE NAV + BACK TO TOP ==========
       const sections = document.querySelectorAll("section");
@@ -210,6 +263,18 @@
 
     });
   </script>
+
+  <div class="social-sidebar">
+  <a href="mailto:mherana.jr@gmail.com" title="Email">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+  <a href="https://facebook.com/YOUR_FACEBOOK" target="_blank" title="Facebook">
+    <i class="fa-brands fa-facebook"></i>
+  </a>
+  <a href="https://github.com/geekPhase" target="_blank" title="GitHub">
+    <i class="fa-brands fa-github"></i>
+  </a>
+</div>
 
 </body>
 </html>
